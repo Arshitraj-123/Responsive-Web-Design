@@ -40,6 +40,12 @@
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
+        .nav-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
         .nav-menu {
             display: flex;
             list-style: none;
@@ -75,6 +81,25 @@
 
         .nav-menu a:hover::after {
             width: 80%;
+        }
+
+        .nav-cta {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,107,107,0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255,107,107,0.5);
         }
 
         /* Hamburger Menu */
@@ -196,6 +221,150 @@
             transform: scale(1.05) rotate(2deg);
         }
 
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            margin-top: 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .about-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-text p {
+            font-size: 18px;
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .mission-values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .mission, .values {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .mission:hover, .values:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+
+        .mission::before, .values::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+        }
+
+        .mission h3, .values h3 {
+            font-size: 24px;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .values ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .values li {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .values li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .mission p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
+        }
+
         /* Features Section */
         .features {
             padding: 5rem 0;
@@ -210,7 +379,7 @@
             left: 0;
             right: 0;
             height: 100px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
             clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
         }
 
@@ -381,6 +550,10 @@
         
         /* Tablet Styles */
         @media (max-width: 768px) {
+            .nav-content {
+                position: relative;
+            }
+
             .nav-menu {
                 position: fixed;
                 left: -100%;
@@ -393,14 +566,23 @@
                 box-shadow: 0 10px 27px rgba(0,0,0,0.05);
                 padding: 2rem 0;
                 gap: 1rem;
+                z-index: 999;
             }
 
             .nav-menu.active {
                 left: 0;
             }
 
+            .nav-cta {
+                order: 1;
+                margin-right: 1rem;
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+
             .hamburger {
                 display: flex;
+                order: 2;
             }
 
             .hero-container {
@@ -415,6 +597,31 @@
 
             .hero-subtitle {
                 font-size: 1.1rem;
+            }
+
+            /* About Section Tablet */
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+
+            .about-text h2 {
+                font-size: 32px;
+            }
+
+            .about-text h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .about-text p {
+                font-size: 16px;
+            }
+
+            .mission-values {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .features-grid {
@@ -442,6 +649,13 @@
                 font-size: 1.5rem;
             }
 
+            .nav-cta {
+                order: 1;
+                margin-right: 1rem;
+                padding: 0.4rem 0.8rem;
+                font-size: 0.7rem;
+            }
+
             .hero-container {
                 padding: 0 1rem;
             }
@@ -457,6 +671,39 @@
             .cta-button {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
+            }
+
+            /* About Section Mobile */
+            .about {
+                padding: 3rem 0;
+            }
+
+            .about-container {
+                padding: 0 1rem;
+            }
+
+            .about-content {
+                gap: 1.5rem;
+            }
+
+            .about-text h2 {
+                font-size: 24px;
+            }
+
+            .about-text p {
+                font-size: 14px;
+            }
+
+            .mission, .values {
+                padding: 2rem 1.5rem;
+            }
+
+            .mission h3, .values h3 {
+                font-size: 20px;
+            }
+
+            .mission p, .values li {
+                font-size: 14px;
             }
 
             .features {
@@ -499,5 +746,13 @@
 
             .section-title {
                 font-size: 3rem;
+            }
+
+            .about-text h2 {
+                font-size: 48px;
+            }
+
+            .about-text p {
+                font-size: 20px;
             }
         }
