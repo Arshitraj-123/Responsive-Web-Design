@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - TechVision</title>
+    <link href="style2.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        h1 {
+            font-size: 40px;
+            color: #667eea;
+            margin: 0;
+        }
+
+        main {
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            margin: 3rem auto;
+            max-width: 1200px;
+        }
+
+        .services-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .service-item {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+
+        .service-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .service-name {
+            font-size: 1.5rem;
+            color: #667eea;
+            margin: 1rem 0;
+        }
+
+        .service-description {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-services-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .view-services-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        footer p {
+            margin: 0;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .services-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Our Services</h1>
+    </header>
+
+    <main>
+        <div class="services-container">
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fHx8MTYyMjY0MjY0NQ&ixlib=rb-1.2.1&q=80&w=400" alt="Web Development">
+                <div class="service-name">Web Development</div>
+                <div class="service-description">We create responsive and user-friendly websites tailored to your business needs. Our web development services include front-end and back-end development, ensuring a seamless experience across all devices.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+
+            <div class="service-item">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIfWEXbpXO5OCnTu06ycd96UlHV6DuP-xLiA&s" alt="AI Solutions">
+                <div class="service-name">AI Solutions</div>
+                <div class="service-description">Harness the power of AI to enhance your business operations. Our AI solutions include machine learning, data analysis, and automation, helping you make informed decisions and drive innovation.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+
+            <div class="service-item">
+                <img src="https://media.istockphoto.com/id/943067460/photo/male-it-specialist-holds-laptop-and-discusses-work-with-female-server-technician-theyre.jpg?s=612x612&w=0&k=20&c=851ArmF2ooz-2yQCRCWkjJLCYwDdpTCYzPinl9WgA_s=" alt="Digital Consulting">
+                <div class="service-name">Digital Consulting</div>
+                <div class="service-description">Our expert consultants provide guidance to help you navigate the digital landscape. We focus on optimizing your strategies, improving operational efficiency, and achieving your business goals through technology.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+
+            <div class="service-item">
+                <img src="https://learn.g2.com/hubfs/iStock-1191609321%20%281%29.jpg" alt="Graphic Design">
+                <div class="service-name">Graphic Design</div>
+                <div class="service-description">Our graphic design services help you create stunning visuals that communicate your brand's message effectively. From logos to marketing materials, we ensure your design stands out.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+
+            <div class="service-item">
+                <img src="https://www.honeycombindia.net/wp-content/uploads/2024/08/1724408525-66c862cd006cb-scaled.jpeg" alt="SEO Services">
+                <div class="service-name">SEO Services</div>
+                <div class="service-description">Improve your website's visibility on search engines with our SEO services. We use the latest techniques to help you rank higher and attract more organic traffic.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+
+            <div class="service-item">
+                <img src="https://contentwriters.com/blog/wp-content/uploads/PPC2018.jpg" alt="Content Writing">
+                <div class="service-name">Content Writing</div>
+                <div class="service-description">Our content writing services provide you with high-quality, engaging content that resonates with your audience and drives conversions.</div>
+                <a href="#" class="view-services-btn">View Services</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TechVision. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
