@@ -25,12 +25,103 @@
             position: relative;
             z-index: 10;
             backdrop-filter: blur(10px);
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Navigation Links Styles */
+        .nav-links {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            right: 0;
+            z-index: 20;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link.home::before {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link.home:hover::before {
+            transform: translateX(-3px);
+        }
+
+        .nav-link.contact::before {
+            content: '📞';
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link.contact:hover::before {
+            transform: scale(1.2);
         }
 
         h1 {
             font-size: 40px;
             color: #667eea;
             margin: 0;
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        h1:hover::after {
+            width: 100%;
+        }
+
+        h1:hover {
+            transform: scale(1.05);
+            text-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
         }
 
         main {
@@ -40,6 +131,21 @@
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             margin: 3rem auto;
             max-width: 1200px;
+            position: relative;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .services-container {
@@ -105,6 +211,18 @@
             position: relative;
             z-index: 10;
             backdrop-filter: blur(10px);
+            animation: slideUp 0.8s ease-out 1.5s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         footer p {
@@ -115,9 +233,41 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .nav-links {
+                position: static;
+                text-align: center;
+                margin-bottom: 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0 1rem;
+            }
+
+            .nav-link {
+                min-width: 120px;
+                justify-content: center;
+                font-size: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
             .services-container {
                 flex-direction: column;
                 align-items: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .nav-link {
+                min-width: 150px;
             }
         }
     </style>
@@ -125,6 +275,10 @@
 <body>
 
     <header>
+        <div class="nav-links">
+            <a href="about.html" class="nav-link home">Back to About</a>
+            <a href="Contact.html" class="nav-link contact">Contact Us</a>
+        </div>
         <h1>Our Services</h1>
     </header>
 
