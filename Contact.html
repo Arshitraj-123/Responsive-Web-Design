@@ -27,6 +27,46 @@
             backdrop-filter: blur(10px);
         }
 
+        /* Navigation Links Styles */
+        .nav-links {
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+            z-index: 20;
+        }
+
+        .nav-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-link:hover {
+            background: rgba(102, 126, 234, 0.2);
+            transform: translateX(-5px);
+            border-color: #667eea;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-link::before {
+            content: '←';
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            transform: translateX(-3px);
+        }
+
         h1 {
             font-size: 40px;
             color: #667eea;
@@ -133,6 +173,12 @@
 
         /* Responsive Styles */
         @media (max-width: 768px) {
+            .nav-links {
+                position: static;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+
             .contact-info {
                 flex-direction: column;
                 align-items: center;
@@ -143,6 +189,9 @@
 <body>
 
     <header>
+        <div class="nav-links">
+            <a href="home.html" class="nav-link">Back to Home</a>
+        </div>
         <h1>Contact Us</h1>
     </header>
 
