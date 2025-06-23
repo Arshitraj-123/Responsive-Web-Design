@@ -147,23 +147,26 @@
                 opacity: 1;
             }
         }
-
-        .services-container {
+         .services-container {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 2rem;
+            align-items: stretch;
         }
 
         .service-item {
             flex: 1;
             min-width: 300px;
+            max-width: 350px;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             text-align: center;
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-item:hover {
@@ -171,8 +174,9 @@
         }
 
         .service-item img {
-            max-width: 100%;
-            height: auto;
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
             border-radius: 10px;
             margin-bottom: 1rem;
         }
@@ -186,6 +190,7 @@
         .service-description {
             font-size: 1rem;
             margin-bottom: 1.5rem;
+            flex-grow: 1;
         }
 
         .view-services-btn {
@@ -196,22 +201,12 @@
             text-decoration: none;
             border-radius: 25px;
             transition: all 0.3s ease;
+            margin-top: auto;
         }
 
         .view-services-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-            backdrop-filter: blur(10px);
-            animation: slideUp 0.8s ease-out 1.5s both;
         }
 
         @keyframes slideUp {
@@ -225,11 +220,61 @@
             }
         }
 
-        footer p {
-            margin: 0;
-            color: #667eea;
-            font-weight: 500;
+           /* Footer */
+        .footer {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 3rem 0 1rem;
+            position: relative;
         }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            color: #ecf0f1;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            line-height: 1.8;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #95a5a6;
+        }
+
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -274,16 +319,40 @@
 </head>
 <body>
 
-    <header>
-        <div class="nav-links">
-            <a href="about.html" class="nav-link home">Back to About</a>
-            <a href="Contact.html" class="nav-link contact">Contact Us</a>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">TechVision</a>
+            <div class="nav-content">
+                <ul class="nav-menu">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+                <a href="#mission-values" class="nav-cta">Get Started</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
-        <h1>Our Services</h1>
-    </header>
+    </nav>
+<!-- Our Services Heading -->
+<section style="text-align: center; padding-top: 7rem; animation: fadeInDown 1s ease-out;">
+  <h1 style="
+    font-size: 3rem;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    margin-bottom: 2rem;
+  ">Our Services</h1>
+</section>
+
+
 
     <main>
         <div class="services-container">
+            
             <div class="service-item">
                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMTc3M3wwfDF8c2VhcmNofDF8fHdlYiUyMGRldmVsb3BtZW50fGVufDB8fHx8MTYyMjY0MjY0NQ&ixlib=rb-1.2.1&q=80&w=400" alt="Web Development">
                 <div class="service-name">Web Development</div>
@@ -352,6 +421,47 @@
             <p>&copy; 2024 TechVision. All rights reserved. Crafted with passion for excellence.</p>
         </div>
     </footer>
+     <script>
+        const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Close menu when clicking on a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        // Optionally close the menu when a link is clicked
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+    </script>
 
 
 </body>
