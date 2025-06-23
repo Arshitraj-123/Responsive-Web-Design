@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -104,7 +104,9 @@ hamburger.addEventListener('click', () => {
 // Close menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        
+        // Optionally close the menu when a link is clicked
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
@@ -116,6 +118,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
